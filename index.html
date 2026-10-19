@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL RABBIT BROS 🐰🎮</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="starfield" id="starfield"></div>
+
+    <div class="game-wrapper">
+        <!-- HUD estilo Mario -->
+        <div class="hud">
+            <div class="hud-block">
+                <span class="hud-icon">🐰</span>
+                <span class="hud-label">RABBIT</span>
+                <span class="hud-value" id="livesDisplay">×3</span>
+            </div>
+            <div class="hud-block">
+                <span class="hud-icon">🪙</span>
+                <span class="hud-label">COINS</span>
+                <span class="hud-value" id="scoreDisplay">×00</span>
+            </div>
+            <div class="hud-block hud-center">
+                <span class="hud-label">WORLD</span>
+                <span class="hud-value" id="worldDisplay">1-1</span>
+            </div>
+            <div class="hud-block">
+                <span class="hud-icon">⏱️</span>
+                <span class="hud-label">TIME</span>
+                <span class="hud-value" id="timeDisplay">300</span>
+            </div>
+            <div class="hud-block">
+                <span class="hud-icon">🎯</span>
+                <span class="hud-label">HP</span>
+                <span class="hud-value hp-icons" id="hpDisplay">❤❤❤</span>
+            </div>
+        </div>
+
+        <!-- Área principal: 2 colunas -->
+        <div class="main-layout">
+            <!-- ESQUERDA: Cenário do jogo (coelho sempre visível!) -->
+            <div class="game-stage" id="gameStage">
+                <div class="sky-layer">
+                    <div class="cloud cloud-1"></div>
+                    <div class="cloud cloud-2"></div>
+                    <div class="cloud cloud-3"></div>
+                    <div class="sun"></div>
+                </div>
+                
+                <div class="hills-layer">
+                    <div class="hill hill-1"></div>
+                    <div class="hill hill-2"></div>
+                    <div class="bush bush-1"></div>
+                    <div class="bush bush-2"></div>
+                </div>
+
+                <div class="world" id="world">
+                    <!-- Castelo -->
+                    <div class="castle" id="castle">
+                        <div class="castle-top"></div>
+                        <div class="castle-flag">🏁</div>
+                        <div class="castle-body">
+                            <div class="castle-door"></div>
+                        </div>
+                    </div>
+
+                    <!-- Coelho -->
+                    <div class="rabbit-player" id="rabbit">
+                        <div class="rabbit-sprite">
+                            <div class="rb-ear left"></div>
+                            <div class="rb-ear right"></div>
+                            <div class="rb-head">
+                                <div class="rb-eye left"></div>
+                                <div class="rb-eye right"></div>
+                                <div class="rb-nose"></div>
+                            </div>
+                            <div class="rb-body"></div>
+                            <div class="rb-foot left"></div>
+                            <div class="rb-foot right"></div>
+                            <div class="rb-tail"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Status flutuante do coelho -->
+                <div class="rabbit-status" id="rabbitStatus">
+                    <span class="status-label">DEGRAU</span>
+                    <span class="status-value" id="stepDisplay">0/10</span>
+                </div>
+
+                <!-- Banner flutuante de feedback -->
+                <div class="float-feedback" id="floatFeedback"></div>
+            </div>
+
+            <!-- DIREITA: Painel de perguntas -->
+            <div class="question-panel" id="questionPanel">
+                <div class="q-header">
+                    <span class="q-world" id="qWorld">WORLD 1-1</span>
+                    <span class="q-category" id="qCategory">MUSIC</span>
+                    <span class="q-count" id="qCount">01/12</span>
+                </div>
+
+                <div class="q-progress">
+                    <div class="q-progress-fill" id="qProgressFill"></div>
+                </div>
+
+                <div class="q-box">
+                    <span class="q-prefix">?</span>
+                    <p id="questionText">Loading...</p>
+                </div>
+
+                <div class="options-grid" id="optionsGrid"></div>
+
+                <div class="q-feedback" id="feedback"></div>
+
+                <button class="next-btn" id="nextBtn" style="display:none;">
+                    ▶ CONTINUE
+                </button>
+            </div>
+        </div>
+
+        <div class="footer-bar">
+            <span>🎵 MUSIC</span>
+            <span>🎨 COLORS</span>
+            <span>🎭 THEATER</span>
+        </div>
+    </div>
+
+    <!-- Start overlay -->
+    <div class="start-overlay" id="startOverlay">
+        <div class="start-card">
+            <h1 class="logo">PIXEL RABBIT</h1>
+            <h2 class="logo-sub">BROS · ARTS EDITION</h2>
+            <div class="start-rabbit">🐰</div>
+            <p class="start-text">
+                AJUDE O COELHO A CHEGAR NO CASTELO<br>
+                RESPONDENDO PERGUNTAS SOBRE<br>
+                <span class="highlight">MÚSICA · CORES · TEATRO</span>
+            </p>
+            <div class="controls-hint">
+                <span>✓ Acertou = +1 moeda, coelho sobe</span>
+                <span>✗ Errou = -1 vida, coelho cai</span>
+            </div>
+            <button class="start-btn" id="startBtn">▶ START GAME</button>
+        </div>
+    </div>
+
+    <!-- End overlay -->
+    <div class="end-overlay" id="endOverlay">
+        <div class="end-card">
+            <h2 class="end-title" id="endTitle">GAME OVER</h2>
+            <div class="end-emoji" id="endEmoji">🐰</div>
+            <p class="end-text" id="endText"></p>
+            <div class="end-stats" id="endStats"></div>
+            <button class="start-btn" id="restartBtn">↻ PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
