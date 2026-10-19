@@ -1,3 +1,4 @@
+
 const rounds = [
   {
     title: "Mundo das cores",
@@ -12,14 +13,14 @@ const rounds = [
           "Azul, verde e marrom"
         ],
         answer: 0,
-        explanation: "Na pintura, as cores primárias tradicionais são vermelho, amarelo e azul."
+        explanation: "Vermelho, amarelo e azul são cores primárias na pintura."
       },
       {
         category: "CORES",
-        text: "Que cor aparece ao misturarmos azul e amarelo?",
+        text: "Que cor surge ao misturarmos azul e amarelo?",
         options: ["Roxo", "Verde", "Laranja", "Rosa"],
         answer: 1,
-        explanation: "Azul e amarelo são cores primárias que, misturadas, formam o verde."
+        explanation: "A mistura de azul com amarelo forma o verde."
       },
       {
         category: "CORES",
@@ -31,19 +32,19 @@ const rounds = [
           "Azul, rosa e marrom"
         ],
         answer: 1,
-        explanation: "Verde, laranja e roxo são cores secundárias, formadas pela mistura de cores primárias."
+        explanation: "Verde, laranja e roxo são cores secundárias."
       },
       {
         category: "CORES",
-        text: "Quais cores costumam ser chamadas de quentes?",
+        text: "Qual grupo contém apenas cores quentes?",
         options: [
           "Azul, verde e violeta",
           "Preto, branco e cinza",
           "Vermelho, laranja e amarelo",
-          "Azul, rosa e verde"
+          "Verde, azul e rosa"
         ],
         answer: 2,
-        explanation: "Vermelho, laranja e amarelo são associadas ao calor e são chamadas de cores quentes."
+        explanation: "Vermelho, laranja e amarelo são exemplos de cores quentes."
       }
     ]
   },
@@ -52,46 +53,46 @@ const rounds = [
     questions: [
       {
         category: "MÚSICA",
-        text: "Qual é a função do ritmo em uma música?",
+        text: "O que o ritmo organiza em uma música?",
         options: [
-          "Organizar os sons e as pausas no tempo",
-          "Escolher as cores de um desenho",
-          "Indicar os personagens de uma peça",
-          "Mudar o formato dos instrumentos"
+          "Os sons e as pausas no tempo",
+          "As cores de uma pintura",
+          "Os personagens de uma peça",
+          "O formato dos instrumentos"
         ],
         answer: 0,
-        explanation: "O ritmo organiza a duração dos sons e das pausas na música."
+        explanation: "O ritmo organiza os sons e as pausas no tempo."
       },
       {
         category: "MÚSICA",
         text: "Qual destes é um instrumento de percussão?",
         options: ["Flauta", "Violino", "Tambor", "Clarinete"],
         answer: 2,
-        explanation: "O tambor é um instrumento de percussão: seu som é produzido ao ser golpeado."
+        explanation: "O tambor é um instrumento de percussão."
       },
       {
         category: "MÚSICA",
         text: "O que é uma paisagem sonora?",
         options: [
-          "Uma pintura feita com notas musicais",
-          "Os sons que podemos ouvir em um lugar",
-          "Uma lista de nomes de instrumentos",
+          "Uma pintura feita com notas",
+          "Os sons que ouvimos em um lugar",
+          "Uma lista de instrumentos",
           "Um palco sem músicos"
         ],
         answer: 1,
-        explanation: "Paisagem sonora é o conjunto de sons de um ambiente, como vozes, pássaros ou trânsito."
+        explanation: "Paisagem sonora é o conjunto de sons de um ambiente."
       },
       {
         category: "MÚSICA",
-        text: "Em uma música, o que é a melodia?",
+        text: "O que é a melodia?",
         options: [
           "Uma sequência de notas que forma uma ideia musical",
           "O nome dado ao palco",
           "O material usado para pintar",
-          "Uma pausa entre duas peças teatrais"
+          "Uma pausa entre peças"
         ],
         answer: 0,
-        explanation: "A melodia é uma sequência de notas que percebemos como uma ideia musical."
+        explanation: "A melodia é uma sequência de notas que forma uma ideia musical."
       }
     ]
   },
@@ -103,38 +104,38 @@ const rounds = [
         text: "Onde os atores geralmente representam uma peça?",
         options: ["No palco", "Na moldura", "No cavalete", "Na partitura"],
         answer: 0,
-        explanation: "O palco é o espaço onde os atores apresentam a peça para o público."
+        explanation: "O palco é o espaço onde os atores apresentam a peça."
       },
       {
         category: "TEATRO",
         text: "Quem interpreta personagens em uma peça?",
         options: ["Os cenógrafos", "Os atores", "Os pintores", "Os espectadores"],
         answer: 1,
-        explanation: "Os atores interpretam os personagens usando voz, corpo e expressão."
+        explanation: "Os atores interpretam os personagens."
       },
       {
         category: "TEATRO",
         text: "Para que servem os figurinos no teatro?",
         options: [
           "Para ajudar a mostrar quem são os personagens",
-          "Para afinar os instrumentos",
+          "Para afinar instrumentos",
           "Para misturar tintas",
-          "Para marcar o ritmo da música"
+          "Para marcar o ritmo"
         ],
         answer: 0,
-        explanation: "Figurinos são as roupas usadas pelos personagens e ajudam a contar quem eles são."
+        explanation: "Figurinos são roupas usadas pelos personagens."
       },
       {
         category: "TEATRO",
         text: "O que é uma improvisação teatral?",
         options: [
-          "Uma cena criada na hora, sem estar totalmente planejada",
-          "Uma música tocada sempre do mesmo jeito",
-          "Uma pintura feita com muitas camadas",
-          "Uma pausa para trocar a iluminação"
+          "Uma cena criada na hora",
+          "Uma música tocada sempre igual",
+          "Uma pintura com muitas camadas",
+          "Uma troca de iluminação"
         ],
         answer: 0,
-        explanation: "Na improvisação, os participantes criam falas e ações durante a própria cena."
+        explanation: "Na improvisação, os participantes criam a cena na hora."
       }
     ]
   }
@@ -159,17 +160,20 @@ const category = document.getElementById("category");
 const questionText = document.getElementById("question-text");
 const answersContainer = document.getElementById("answers");
 const feedback = document.getElementById("feedback");
+
+const scene = document.getElementById("scene");
+const stairs = document.getElementById("stairs");
 const player = document.getElementById("player");
 
 const resultTitle = document.getElementById("result-title");
 const resultText = document.getElementById("result-text");
 const finalScore = document.getElementById("final-score");
-const resultMessage = document.getElementById("result-message");
 const resultBunny = document.getElementById("result-bunny");
 
 let roundIndex = 0;
 let questionIndex = 0;
 let score = 0;
+let bunnyStep = 0;
 let answered = false;
 
 const totalQuestions = rounds.reduce(
@@ -179,40 +183,55 @@ const totalQuestions = rounds.reduce(
 
 startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", startGame);
-nextButton.addEventListener("click", goToNextQuestion);
+nextButton.addEventListener("click", nextQuestion);
 
 function startGame() {
   roundIndex = 0;
   questionIndex = 0;
   score = 0;
+  bunnyStep = 0;
   answered = false;
 
-  scoreDisplay.textContent = score;
+  scoreDisplay.textContent = "0";
   intro.classList.add("hidden");
   result.classList.add("hidden");
   quiz.classList.remove("hidden");
 
+  createStairs();
+  moveBunny(false);
   showQuestion();
+}
+
+function createStairs() {
+  stairs.replaceChildren();
+
+  for (let i = 0; i < totalQuestions; i++) {
+    const step = document.createElement("div");
+    step.className = "stair-step";
+    step.style.left = `${4 + i * 5.7}%`;
+    step.style.bottom = `${20 + i * 7}px`;
+    stairs.appendChild(step);
+  }
 }
 
 function showQuestion() {
   const round = rounds[roundIndex];
   const question = round.questions[questionIndex];
-  const questionNumber = getQuestionNumber();
+  const number = getQuestionNumber();
 
   answered = false;
   roundLabel.textContent = `RODADA ${roundIndex + 1} DE ${rounds.length}`;
   roundTitle.textContent = round.title;
-  questionCount.textContent = `Pergunta ${questionNumber} de ${totalQuestions}`;
   category.textContent = question.category;
   questionText.textContent = question.text;
+  questionCount.textContent = `Pergunta ${number} de ${totalQuestions}`;
 
-  const progress = Math.round((questionNumber / totalQuestions) * 100);
-  progressPercent.textContent = `${progress}%`;
-  progressFill.style.width = `${progress}%`;
+  const percentage = Math.round((number / totalQuestions) * 100);
+  progressPercent.textContent = `${percentage}%`;
+  progressFill.style.width = `${percentage}%`;
 
-  feedback.className = "feedback hidden";
   feedback.textContent = "";
+  feedback.className = "feedback hidden";
   nextButton.classList.add("hidden");
   answersContainer.replaceChildren();
 
@@ -231,10 +250,10 @@ function chooseAnswer(selectedIndex) {
   answered = true;
 
   const question = rounds[roundIndex].questions[questionIndex];
-  const answerButtons = answersContainer.querySelectorAll(".answer");
+  const buttons = answersContainer.querySelectorAll(".answer");
   const isCorrect = selectedIndex === question.answer;
 
-  answerButtons.forEach((button, index) => {
+  buttons.forEach((button, index) => {
     button.disabled = true;
 
     if (index === question.answer) {
@@ -246,29 +265,56 @@ function chooseAnswer(selectedIndex) {
 
   if (isCorrect) {
     score += 10;
-    scoreDisplay.textContent = score;
+    scoreDisplay.textContent = String(score);
+    bunnyStep = Math.min(bunnyStep + 1, totalQuestions);
     feedback.textContent = `Acertou! ${question.explanation}`;
     feedback.className = "feedback good";
-    jumpBunny();
+    moveBunny(true);
   } else {
-    feedback.textContent = `Quase! ${question.explanation}`;
+    bunnyStep = Math.max(bunnyStep - 1, 0);
+    feedback.textContent = `Ops! O coelho caiu um degrau. ${question.explanation}`;
     feedback.className = "feedback bad";
+    moveBunny(false);
   }
 
   const isLastQuestion =
     roundIndex === rounds.length - 1 &&
     questionIndex === rounds[roundIndex].questions.length - 1;
 
-  nextButton.innerHTML = isLastQuestion
-    ? 'Ver resultado <span>★</span>'
-    : 'Próxima <span>➜</span>';
+  nextButton.textContent = isLastQuestion
+    ? "Ver resultado ★"
+    : "Próxima pergunta ➜";
 
   nextButton.classList.remove("hidden");
 }
 
-function goToNextQuestion() {
+function moveBunny(jump) {
+  if (!scene || !player) return;
+
+  const sceneWidth = scene.clientWidth;
+  const maxLeft = Math.max(0, sceneWidth - player.offsetWidth - 12);
+  const left = Math.min(12 + bunnyStep * 22, maxLeft);
+  const bottom = 12 + bunnyStep * 7;
+
+  player.style.left = `${left}px`;
+  player.style.bottom = `${bottom}px`;
+
+  player.classList.remove("jump", "fall");
+
+  // Reinicia a animação para que ela toque de novo em cada resposta.
+  void player.offsetWidth;
+
+  if (jump) {
+    player.classList.add("jump");
+  } else if (answered) {
+    player.classList.add("fall");
+  }
+}
+
+function nextQuestion() {
   questionIndex++;
 
+```javascript
   if (questionIndex >= rounds[roundIndex].questions.length) {
     roundIndex++;
     questionIndex = 0;
@@ -286,29 +332,36 @@ function showResult() {
   quiz.classList.add("hidden");
   result.classList.remove("hidden");
 
-  finalScore.textContent = score;
-  resultText.textContent = `Você respondeu às ${totalQuestions} perguntas das rodadas de cores, música e teatro.`;
+  finalScore.textContent = String(score);
 
   if (score === totalQuestions * 10) {
-    resultTitle.textContent = "Artista incrível!";
-    resultMessage.textContent = "Você acertou todas! O coelhinho comemora com você!";
-    resultBunny.textContent = "🐰";
-  } else if (score >= totalQuestions * 5) {
-    resultTitle.textContent = "Mandou muito bem!";
-    resultMessage.textContent = "Você já sabe bastante sobre artes. Continue criando e aprendendo!";
+    resultTitle.textContent = "Você conseguiu!";
+    resultText.textContent =
+      "O coelhinho acertou todas e chegou à casinha! Parabéns, artista!";
     resultBunny.textContent = "🐰";
   } else {
-    resultTitle.textContent = "Boa aventura!";
-    resultMessage.textContent = "Cada rodada é uma chance de aprender algo novo sobre artes!";
+    resultTitle.textContent = "A aventura terminou!";
+    resultText.textContent =
+      `Você fez ${score} pontos. O coelhinho não chegou à casinha desta vez, mas pode tentar novamente!`;
     resultBunny.textContent = "🐇";
   }
 }
+
 function getQuestionNumber() {
-  let count = questionIndex;
+  let number = questionIndex;
 
   for (let i = 0; i < roundIndex; i++) {
-    count += rounds[i].questions.length;
+    number += rounds[i].questions.length;
   }
 
-  return count + 1;
+  return number + 1;
 }
+
+// Reposiciona o coelho se a tela mudar de tamanho.
+window.addEventListener("resize", () => {
+  if (!quiz.classList.contains("hidden")) {
+    moveBunny(false);
+  }
+});
+```
+  
