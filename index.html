@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coelho Artista — Aventura Pixel</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <main class="game">
+    <header class="topbar">
+      <div class="brand">✿ ATELIÊ PIXEL</div>
+      <div class="bunny-small" aria-hidden="true">🐰</div>
+    </header>
+
+    <section class="screen intro" id="intro">
+      <div class="hero-bunny" aria-hidden="true">🐰</div>
+      <p class="eyebrow">UMA AVENTURA DE ARTES</p>
+      <h1>Coelho<br><span>Artista!</span></h1>
+      <p class="intro-text">
+        Pule de fase e responda perguntas sobre cores, música e teatro.
+        Será que você consegue chegar ao final?
+      </p>
+      <div class="decorations" aria-hidden="true">🎨 🎵 🎭</div>
+      <button class="button primary" id="start-button">Começar <span>➜</span></button>
+      <p class="small-note">3 rodadas · 12 perguntas · muita diversão!</p>
+    </section>
+
+    <section class="screen quiz hidden" id="quiz">
+      <div class="quiz-heading">
+        <div>
+          <p class="eyebrow" id="round-label">RODADA 1</p>
+          <h2 id="round-title">Mundo das cores</h2>
+        </div>
+        <div class="score-badge">⭐ <span id="score">0</span></div>
+      </div>
+
+      <div class="progress-area">
+        <div class="progress-label">
+          <span id="question-count">Pergunta 1 de 4</span>
+          <span id="progress-percent">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="play-area">
+        <div class="platform"></div>
+        <div class="player" id="player" aria-label="Coelhinho do jogo">🐰</div>
+        <span class="sparkle sparkle-one" aria-hidden="true">✦</span>
+        <span class="sparkle sparkle-two" aria-hidden="true">✿</span>
+      </div>
+
+      <article class="question-card">
+        <p class="category" id="category">CORES</p>
+        <h3 id="question-text"></h3>
+        <div class="answers" id="answers"></div>
+      </article>
+
+      <div class="feedback hidden" id="feedback" role="status"></div>
+      <button class="button primary hidden" id="next-button">Próxima <span>➜</span></button>
+      <p class="mascot-line">🐰 “Responda para eu pular para a próxima fase!”</p>
+    </section>
+
+    <section class="screen result hidden" id="result">
+      <div class="hero-bunny" id="result-bunny" aria-hidden="true">🐰</div>
+      <p class="eyebrow">FIM DA AVENTURA</p>
+      <h2 id="result-title">Mandou bem!</h2>
+      <p class="result-text" id="result-text"></p>
+      <div class="final-score">⭐ <strong id="final-score">0</strong> <small>pontos</small></div>
+      <p id="result-message"></p>
+      <button class="button primary" id="restart-button">Jogar novamente <span>↻</span></button>
+    </section>
+
+    <footer>FEITO COM <span>♥</span> E MUITA CRIATIVIDADE</footer>
+  </main>
+</body>
+</html>
